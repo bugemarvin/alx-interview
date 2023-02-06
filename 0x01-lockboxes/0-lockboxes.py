@@ -18,8 +18,9 @@ def canUnlockAll(boxes):
     boxes_size = len(boxes)
     my_boxes = [0]
     for index, keys in enumerate(boxes):
-        for values in range(len(keys)):
-            my_boxes.append(keys[values])
+        for values in keys:
+            if values < boxes_size:
+                my_boxes.append(values)
     my_list = len(set(my_boxes))
     if my_list == boxes_size:
         return True
