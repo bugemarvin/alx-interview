@@ -1,12 +1,6 @@
 #!/usr/bin/python3
 '''
-n number locked boxes.
-Each box is numbered sequentially and may contain keys to other boxes.
-A key with the same number as a box opens that box
-You can assume all keys will be positive integers
-There can be keys that do not have boxes
-The first box boxes[0] is unlocked
-Return True if all boxes can be opened, else return False
+breadth-first search (BFS) algorithm to determine if all boxes can be opened.
 '''
 
 
@@ -15,14 +9,12 @@ def canUnlockAll(boxes):
             function for boxes
             boxes is a list of a list
     '''
-    boxes_size = len(boxes)
-    my_boxes = [0]
-    for index, keys in enumerate(boxes):
-        for values in keys:
-            if values < boxes_size:
-                my_boxes.append(values)
-    my_list = len(set(my_boxes))
-    if my_list == boxes_size:
-        return True
-    else:
-        return False
+    my_boxes = [0]  # my stack
+    numbers = [False] * len(boxes)
+    numbers[0] = True
+    for box in my_boxes:
+        for key in boxes[box]:
+            if key < len(numbers) and not numbers[key]:
+                numbers[key] = True
+                my_boxes.append(key)
+    return len(my_boxes) == len(boxes)
