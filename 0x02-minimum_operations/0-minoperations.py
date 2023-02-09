@@ -1,22 +1,24 @@
 # 1/usr/bin/python3
 '''
-function to find the min number of H occurence.
+function to find the min number occurence.
 '''
-import sys
 
 
 def minOperations(n):
     '''
-    creating a copy list to store the n occurence
-    Initializing the 1st index to 2 and power of 2
-    To loop through starting at point 2 of the index
-    till the nth occurence and the null terminator
+        minimum number of operations needed to result
+        For n H characters in the file.
     '''
-    if n <= 1:
-        return 0
-    total = 0
-    for a in range(2, n + 1):
-        if n % a == 0:
-            total += 1
-            n //= a
-    return total
+    count = 0
+    while n > 1:
+        f = 2
+        while f * f <= n:
+            if n % f == 0:
+                break
+            f += 1
+        if f * f > n:
+            f = n
+        while n % f == 0:
+            count += 1
+            n /= f
+    return count
