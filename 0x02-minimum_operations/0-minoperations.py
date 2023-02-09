@@ -22,3 +22,4 @@ def minOperations(n):
             count += 1
             n /= f
     return count
+
