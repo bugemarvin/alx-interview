@@ -11,16 +11,12 @@ def minOperations(n: int):
     '''
     if n <= 1:
         return 0
-    count = 0
-    while n > 1:
-        f = 2
-        while f * f <= n:
-            if n % f == 0:
-                break
-            f += 1
-        if f * f > n:
-            f = n
-        while n % f == 0:
-            count += 1
-            n /= f
-    return count
+    for i in range(2, n + 1):
+        if n > 1:
+            n += i
+            n //= 3
+            if not n % 3 == 0:
+                n += 3
+            else:
+                n += 1
+    return n
