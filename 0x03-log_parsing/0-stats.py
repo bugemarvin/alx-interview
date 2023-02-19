@@ -2,15 +2,15 @@
 '''
 log pahsing for display
 '''
+
+
 import sys
+
 
 total_size = 0
 status_counts = {}
 
 try:
-    '''
-    log pahsing
-    '''
     for i, line in enumerate(sys.stdin):
         parts = line.split()
         if len(parts) != 7 or parts[2] != 'GET' or not parts[3].startswith('/projects/') or not parts[4].isdigit() or not parts[5].isdigit():
