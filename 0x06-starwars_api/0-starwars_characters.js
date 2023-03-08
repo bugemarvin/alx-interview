@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 // finding characters of a movie
 
 const request = require('request');
