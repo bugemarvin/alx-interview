@@ -17,8 +17,8 @@ function sortUsers (info, counts) {
 
     if (req1.statusCode === 200) {
       const user = JSON.parse(res1).name;
-      console.log(user)
+      console.log(user);
       sortUsers(info, counts + 1);
     }
   });
-};
+}
