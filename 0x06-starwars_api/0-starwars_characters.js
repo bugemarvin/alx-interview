@@ -11,19 +11,21 @@ function myRequster () {
       }
       if (req.statusCode === 200) {
         const users = JSON.parse(res).characters;
-        for (let i = 1; i <= users.length; i++) {
-          request.get('https://swapi-api.alx-tools.com/api/people/' + i, async (err1, req1, res1) => {
-            if (err1) reject(console.log(err1));
-            if (req1.statusCode === 200) {
-              if (users[i]) {
-                resolve(console.log(await JSON.parse(res1).name));
-              }
-            }
-          });
-        }
+        resolve(characters(users, 0));
       }
     });
   });
 }
 
+function characters (info, j) {
+  for (; j < info.length; j++) {
+    const urls = 'https://swapi-api.alx-tools.com/api/people/';
+    request.get(urls + (j + 1), async (err1, req1, res1) => {
+      if (err1) console.log(err1);
+      if (req1.statusCode === 200) {
+        console.log(await JSON.parse(res1).name);
+      }
+    });
+  }
+}
 myRequster();
