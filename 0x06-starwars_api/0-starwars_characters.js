@@ -19,8 +19,7 @@ function myRequster () {
 
 function characters (info, j) {
   for (; j < info.length; j++) {
-    const urls = 'https://swapi-api.alx-tools.com/api/people/';
-    request.get(urls + (j + 1), async (err1, req1, res1) => {
+    request.get(info[j], async (err1, req1, res1) => {
       if (err1) console.log(err1);
       if (req1.statusCode === 200) {
         console.log(await JSON.parse(res1).name);
