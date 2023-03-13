@@ -8,9 +8,9 @@ All your files should end with a new line\
 The first line of all your files should be exactly `#!/usr/bin/python3`\
 A README.md file, at the root of the folder of the project, is mandatory\
 Your code should use the PEP 8 style (version 1.7.*)\
-All your files must be executable
-<img src="https://github.com/bugemarvin/alx-interview/blob/master/0x05-nqueens/judth_polgar.jpg" />
-Chess grandmaster Judit Polgár, the strongest female chess player of all time\
+All your files must be executable\
+<img src="https://github.com/bugemarvin/alx-interview/blob/master/0x05-nqueens/judth_polgar.jpg" />\
+Chess grandmaster Judit Polgár, the strongest female chess player of all time
 # Task
 Usage: `nqueens N`\
 If the user called the program with the wrong number of arguments, `print Usage: nqueens N`, followed by a new line, and `exit` with the status `1`\
