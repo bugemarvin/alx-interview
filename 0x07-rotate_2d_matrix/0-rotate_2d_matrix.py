@@ -1,20 +1,15 @@
 #!/usr/bin/python3
 """Rotate matrix in reverse
 """
+import numpy
 
 
 def rotate_2d_matrix(matrix):
-    """Rotate 90%
-
-    Keyword arguments:
-    matrix -- a list as an argument
-    Return: reversed list
+    """transpose a matrix
     """
-    new_matrix = []
-    for i in range(len(matrix[0])):
-        new_row = []
-        for j in range(len(matrix)):
-            new_row.append(matrix[j][i])
-        new_matrix.append(new_row[::-1])
-
-    return new_matrix
+    for a in range(len(matrix)):
+        for b in range(a, len(matrix)):
+            matrix[a][b], matrix[b][a] = matrix[b][a], matrix[a][b]
+    for value in range(len(matrix)):
+        matrix[value].reverse()
+    return matrix
