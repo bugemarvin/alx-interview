@@ -10,17 +10,11 @@ def rotate_2d_matrix(matrix):
     matrix -- a list as an argument
     Return: reversed list
     """
+    new_matrix = []
+    for i in range(len(matrix[0])):
+        new_row = []
+        for j in range(len(matrix)):
+            new_row.append(matrix[j][i])
+        new_matrix.append(new_row[::-1])
 
-    matrix_3 = []
-    matrix_2 = []
-    matrix_1 = []
-
-    for value in matrix:
-        """_summary_
-        """
-        matrix_3.append(value[2])
-        matrix_2.append(value[1])
-        matrix_1.append(value[0])
-
-    matrix[:] = [matrix_1[::-1], matrix_2[::-1], matrix_3[::-1]]
-    return matrix
+    return new_matrix
