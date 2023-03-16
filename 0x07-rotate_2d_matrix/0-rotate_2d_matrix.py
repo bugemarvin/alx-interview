@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Rotate matrix in reverse
 """
-import numpy
 
 
 def rotate_2d_matrix(matrix):
