@@ -4,7 +4,7 @@
 
 
 def rotate_2d_matrix(matrix):
-    """transpose a matrix
+    """transpose a matrix by swaping the cols
     """
     for a in range(len(matrix)):
         for b in range(a, len(matrix)):
