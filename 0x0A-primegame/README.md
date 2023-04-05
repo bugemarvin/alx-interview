@@ -25,7 +25,7 @@ who the winner of each game is.\
 * You cannot import any packages in this task
 
 ### Example:
-        * x = 3, nums = [4, 5, 1]
+        x = 3, nums = [4, 5, 1]
 First round: `4`
 
 * Maria picks 2 and removes 2, 4, leaving 1, 3
