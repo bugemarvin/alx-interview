@@ -22,18 +22,33 @@ def isWinner(x, nums):
     """
     maria_wins = 0
     ben_wins = 0
-    for _ in range(x):
-        for n in nums:
-            nums_set = set(range(2, n+1))
-            while nums_set:
-                p = min(filter(lambda x: all(x %
-                        i != 0 for i in range(2, int(x**0.5)+1)), nums_set))
-                nums_set -= set(range(p, n+1, p))
-                maria_turn = None
-                maria_turn = not maria_turn
-                if maria_turn:
-                    ben_wins += 1
-                else:
-                    maria_wins += 1
-            return "Maria" if maria_wins > ben_wins else "Ben"\
-                if ben_wins > maria_wins else None
+    for n in nums:
+        # initialize the set of available numbers
+        nums_set = set(range(2, n+1))
+
+        # simulate the game
+        maria_turn = True
+        while nums_set:
+            # find the smallest prime number
+            p = min(filter(lambda x: all(x %
+                    i != 0 for i in range(2, int(x**0.5)+1)), nums_set))
+
+            # remove p and its multiples from the set
+            nums_set.difference_update(range(p, n+1, p))
+
+            # switch turns
+            maria_turn = not maria_turn
+
+        # determine the winner
+        if maria_turn:
+            ben_wins += 1
+        else:
+            maria_wins += 1
+
+    # determine the overall winner
+    if maria_wins > ben_wins:
+        return "Maria"
+    elif ben_wins > maria_wins:
+        return "Ben"
+    else:
+        return None
