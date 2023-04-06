@@ -8,25 +8,18 @@ If the winner cannot be determined, return None
 You can assume n and x will not be larger than 10000
 '''
 
-'''
-def isWinner(x, nums):
-        """_isWinner_
-
-        Args:
-            x (integer): _description_
-            nums (array): _description_
-        
-        Returns:
-            None: if winner is not found
-            name: if winner is found
-        """
-        rounds = 0
-        while rounds >= x:
-                for n in range(len(nums)):
-'''
-
 
 def isWinner(x, nums):
+    """_isWinner_
+
+    Args:
+        x (integer): _description_
+        nums (array): _description_
+
+    Returns:
+        None: if winner is not found
+        name: if winner is found
+    """
     maria_wins = 0
     ben_wins = 0
     for _ in range(x):
@@ -39,7 +32,8 @@ def isWinner(x, nums):
                 maria_turn = None
                 maria_turn = not maria_turn
                 if maria_turn:
-                        ben_wins += 1
+                    ben_wins += 1
                 else:
-                        maria_wins += 1
-        return "Maria" if maria_wins > ben_wins else "Ben" if ben_wins > maria_wins else None
+                    maria_wins += 1
+        return "Maria" if maria_wins > ben_wins else "Ben"\
+            if ben_wins > maria_wins else None
